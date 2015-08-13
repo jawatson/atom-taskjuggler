@@ -1,0 +1,19 @@
+{
+  "name": "taskjuggler",
+  "main": "./lib/taskjuggler",
+  "version": "0.0.1",
+  "description": "Taskjuggler support",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "taskjuggler:runtj"
+  },
+  "repository": "https://github.com/atom/taskjuggler",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0",
+    "node": "*"
+  },
+  "dependencies": {
+  }
+}

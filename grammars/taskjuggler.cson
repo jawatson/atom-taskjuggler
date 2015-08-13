@@ -1,0 +1,123 @@
+'scopeName': 'source.taskjuggler'
+'name': 'TASKJUGGLER'
+'fileTypes': [
+  'tjp'
+  'TJP'
+]
+#'foldingStartMarker': '^\\s*([-%#\\:\\.\\w\\=].*)\\s{'
+#'foldingStopMarker': '^\\s*}'
+'patterns': [
+  # Macros
+  {
+  'begin': '(macro)\\s*(\\w+)\\s*\\['
+  'captures':
+    '0': 'name': 'comment.taskjuggler'
+    '1': 'name': 'keyword.taskjuggler'
+    '2': 'name': 'variable.taskjuggler'
+  'end': '\\]'
+  'name': 'comment.block'
+  }
+
+  {
+    'match': '(\\${\\w+})'
+    'name': 'constant.taskjuggler'
+  }
+
+  # Project keywords
+  {
+    'match': '\\b(project|copyright|resource|managers|purge)\\b'
+    'name': 'keyword.taskjuggler'
+  }
+
+  {
+    'match': '\\b(vacation)\\s+(".+")\\s+(.+)'
+    'name': 'variable.taskjuggler'
+    'captures': {
+      '1': {'name': 'keyword.taskjuggler'}
+      '2': {'name': 'constant.taskjuggler'}
+      '3': {'name': 'variable.taskjuggler'}
+    }
+  }
+  # tasks headers
+  {
+    'match': '\\b(task)\\s+(\\w+)\\s+(".+")'
+    'captures': {
+      '1': {'name': 'keyword.taskjuggler'}
+      '2': {'name': 'variable.taskjuggler'}
+      '3': {'name': 'comment.taskjuggler'}
+    }
+  }
+
+  {
+    'match': '\\b(task|priority|start|length|duration|shifts|effort|complete|depends|allocate)\\b'
+    'name': 'keyword.taskjuggler'
+  }
+
+  {
+    'match': '\\b(journalentry|author|alert|summary|details)\\b'
+    'name': 'keyword.taskjuggler'
+  }
+
+  {
+    'match': '\\b(header|footer|columns|timeformat|loadunit)\\b'
+    'name': 'keyword.taskjuggler'
+  }
+
+  {
+    'match': '\\b(textreport|taskreport)\\s+(\\w*)\\s*("(.*)")'
+    'name': 'variable.taskjuggler'
+    'captures': {
+      '1': {'name': 'keyword.taskjuggler'}
+      '2': {'name': 'constant.taskjuggler'}
+      '3': {'name': 'comment.taskjuggler'}
+    }
+  }
+
+  # -8<- UTF-8 comment ->8-
+  {
+    'begin': '-8<-'
+    'captures':
+      '0':
+        'name': 'comment.taskjuggler'
+    'end': '->8-'
+    'name': 'comment.taskjuggler'
+  }
+
+# Notes
+{
+  'begin': '(note)\\s*"'
+  'captures':
+    '0': 'name': 'comment'
+    '1': 'name': 'keyword.taskjuggler'
+  'end': '"'
+  'name': 'comment.block'
+}
+
+  # Comments
+  {
+    'begin': '/\\*'
+    'captures':
+      '0':
+        'name': 'comment'
+    'end': '\\*/'
+    'name': 'comment.block'
+  }
+  {
+        'begin': '(^[ \\t]+)?(?=#)'
+        'beginCaptures':
+          '1':
+            'name': 'comment.block'
+        'end': '(?!\\G)'
+        'patterns': [
+          {
+            'begin': '#'
+            'beginCaptures':
+              '0':
+                'name': 'comment.block'
+            'end': '\\n'
+            'name': 'comment.block'
+          }
+        ]
+      }
+
+]
