@@ -11,13 +11,13 @@ class ConsoleView
     @log = document.createElement('div')
     @tjConsole.appendChild(@log)
 
-    atom.workspace.addBottomPanel({item: @tjConsole, visible: true})
-    console.log("done init")
+    atom.workspace.addBottomPanel({item: @tjConsole})
 
   serialize: ->
 
   destroy: ->
-    #@tjConsole.remove()
+    if @tjConsole
+      @tjConsole.remove()
 
   logStdout: (text)->
     @logText(text)
@@ -26,7 +26,7 @@ class ConsoleView
     @logText(text)
 
   logText: (text) ->
-    @tjConsole.scrollTop = @tjConsole.scrollHeight;
+    #@tjConsole.scrollTop = @tjConsole.scrollHeight;
     textNode = document.createElement("span");
-    textNode.innerHTML = text.replace('\n', '</br>')
+    textNode.innerHTML = text.replace('\n', '</br>') + "</br>END OF RUN"
     @log.appendChild(textNode)
