@@ -15,10 +15,11 @@ module.exports =
     #@consoleView = new ConsoleView(state.consoleViewState)
     #sync = require('tj3').spawnSync
     # This assumes the active pane item is an editor
-    editor = atom.workspace.getActivePaneItem()
+    # editor = atom.workspace.getActivePaneItem()
     console.log("Running Taskjuggler")
-
+    
     editor = atom.workspace.getActivePaneItem()
+    editor?.save()
     file = editor?.buffer.file
     filePath = file?.path
     console.log("Path: "+filePath)
