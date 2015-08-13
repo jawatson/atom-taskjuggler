@@ -24,6 +24,6 @@ module.exports =
     console.log("Path: "+filePath)
     dirPath = path.dirname(filePath)
     console.log("Dir: "+dirPath)
-    sp = spawn("tj3", [filePath], ["-o", dirPath])
+    sp = spawn("tj3", ['-o', dirPath, filePath])
 
     console.log("Done")
