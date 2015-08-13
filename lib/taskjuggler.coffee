@@ -1,6 +1,9 @@
 TaskjugglerView = require './taskjuggler-view'
 {CompositeDisposable} = require 'atom'
 spawn = require('child_process').spawn
+path = require 'path'
+
+# https://github.com/AtomLinter/linter-eslint/blob/master/lib/linter-eslint.coffee
 
 module.exports =
   #consoleView: null
@@ -19,7 +22,8 @@ module.exports =
     file = editor?.buffer.file
     filePath = file?.path
     console.log("Path: "+filePath)
-
-    sp = spawn("tj3", [filePath])
+    dirPath = path.dirname(filePath)
+    console.log("Dir: "+dirPath)
+    sp = spawn("tj3", [filePath], ["-o", dirPath])
 
     console.log("Done")
