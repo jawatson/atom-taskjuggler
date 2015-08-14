@@ -15,6 +15,10 @@
         {
           'label': 'Run'
           'command': 'taskjuggler:runtj'
+        },
+        {
+          'label': 'Check Syntax'
+          'command': 'taskjuggler:checkSyntax'
         }
       ]
     ]
