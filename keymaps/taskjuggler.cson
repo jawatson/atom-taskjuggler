@@ -8,4 +8,5 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
-  'ctrl-alt-o': 'taskjuggler:runtj'
+  'ctrl-alt-t': 'taskjuggler:runtj'
+  'ctrl-alt-y': 'taskjuggler:checkSyntax'
