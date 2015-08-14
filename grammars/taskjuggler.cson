@@ -49,7 +49,7 @@
   }
 
   {
-    'match': '\\b(task|priority|start|length|duration|shifts|effort|complete|depends|allocate|milestone)\\b'
+    'match': '\\b(task|priority|start|length|duration|gapduration|gaplength|shifts|effort|complete|depends|allocate|milestone)\\b'
     'name': 'keyword.taskjuggler'
   }
 
