@@ -22,7 +22,9 @@ module.exports =
   runtj: ->
     # This assumes the active pane item is an editor
     # editor = atom.workspace.getActivePaneItem()
-    console.log (@editorIsTaskJuggler())
+    # console.log (@editorIsTaskJuggler())
+    if not @editorIsTaskJuggler()
+      return
     @consoleView.destroy()
 
     editor = atom.workspace.getActivePaneItem()
@@ -46,6 +48,8 @@ module.exports =
   checkSyntax: ->
     # This assumes the active pane item is an editor
     # editor = atom.workspace.getActivePaneItem()
+    if not @editorIsTaskJuggler()
+      return
     @consoleView.destroy()
 
     editor = atom.workspace.getActivePaneItem()
