@@ -6,8 +6,10 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "taskjuggler:runtj",
-    "atom-workspace": "taskjuggler:checkSyntax"
+    "atom-workspace": [
+      "taskjuggler:runtj",
+      "taskjuggler:checkSyntax"
+    ]
   },
   "repository": "https://github.com/atom/taskjuggler",
   "license": "MIT",

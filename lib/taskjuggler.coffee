@@ -14,9 +14,15 @@ module.exports =
     atom.commands.add 'atom-workspace', "taskjuggler:checkSyntax", => @checkSyntax()
     @consoleView = new ConsoleView(state.consoleViewState)
 
+  editorIsTaskJuggler: ->
+    editor = atom.workspace.getActivePaneItem()
+    editor and editor.getGrammar().scopeName is 'source.taskjuggler'
+
+
   runtj: ->
     # This assumes the active pane item is an editor
     # editor = atom.workspace.getActivePaneItem()
+    console.log (@editorIsTaskJuggler())
     @consoleView.destroy()
 
     editor = atom.workspace.getActivePaneItem()
