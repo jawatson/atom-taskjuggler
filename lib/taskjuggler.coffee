@@ -33,7 +33,15 @@ module.exports =
     @tj = spawn("tj3", ['--silent', '-o', dirPath, filePath])
     @tj.stdout.on('data', (data) => @consoleView.logStdout(data.toString('utf8')))
     @tj.stderr.on('data', (data) => @consoleView.logStderr(data.toString('utf8')))
+    @tj.on('exit', (code) => @consoleView.logStdout(@returnCodeMsg(code)))
     console.log("Done")
 
+  returnCodeMsg: (code) ->
+    if code==0
+      msg = "Complete with no errors"
+    else
+      msg = "Complete with errors"
+    return msg
+
   runSyntax: ->
-    console.log ("Checking syntax")  
+    console.log ("Checking syntax")

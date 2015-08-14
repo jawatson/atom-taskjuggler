@@ -28,5 +28,5 @@ class ConsoleView
   logText: (text) ->
     #@tjConsole.scrollTop = @tjConsole.scrollHeight;
     textNode = document.createElement("span");
-    textNode.innerHTML = text.replace('\n', '</br>') + "</br>END OF RUN"
+    textNode.innerHTML = text.replace('\n', '</br>')
     @log.appendChild(textNode)
