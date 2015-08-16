@@ -25,7 +25,7 @@
 
   # Project keywords
   {
-    'match': '\\b(project|copyright|resource|managers|purge)\\b'
+    'match': '\\b(project|copyright|managers|purge)\\b'
     'name': 'keyword.taskjuggler'
   }
 
