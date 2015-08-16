@@ -40,7 +40,7 @@
   }
   # tasks headers
   {
-    'match': '\\b(task)\\s+(\\w+)\\s+(".+")'
+    'match': '\\b(task|resource|shift)\\s+(\\w+)\\s+(".+")'
     'captures': {
       '1': {'name': 'keyword.taskjuggler'}
       '2': {'name': 'variable.taskjuggler'}
@@ -49,7 +49,7 @@
   }
 
   {
-    'match': '\\b(task|priority|start|length|duration|gapduration|gaplength|shifts|effort|complete|depends|allocate|milestone)\\b'
+    'match': '\\b(task|priority|start|length|duration|gapduration|gaplength|shift|shifts|workinghours|effort|complete|depends|allocate|milestone)\\b'
     'name': 'keyword.taskjuggler'
   }
 
@@ -57,14 +57,31 @@
     'match': '\\b(journalentry|author|alert|summary|details)\\b'
     'name': 'keyword.taskjuggler'
   }
-
+  # Reporting headers
   {
-    'match': '\\b(header|footer|columns|timeformat|loadunit)\\b'
+    'match': '\\b(header|footer|navigator|columns|timeformat|loadunit)\\b'
     'name': 'keyword.taskjuggler'
   }
 
   {
-    'match': '\\b(textreport|taskreport)\\s+(\\w*)\\s*("(.*)")'
+    'match': '\\bnavigator\\s+(\\w+)'
+    'name': 'variable.taskjuggler'
+    'captures': {
+      '1': {'name': 'constant.taskjuggler'}
+    }
+  }
+
+  {
+    'match': '\\b(headline)\\s*("(.*)")'
+    'name': 'variable.taskjuggler'
+    'captures': {
+      '1': {'name': 'keyword.taskjuggler'}
+      '2': {'name': 'comment.taskjuggler'}
+    }
+  }
+
+  {
+    'match': '\\b(textreport|taskreport|resourcereport)\\s+(\\w*)\\s*("(.*)")'
     'name': 'variable.taskjuggler'
     'captures': {
       '1': {'name': 'keyword.taskjuggler'}
